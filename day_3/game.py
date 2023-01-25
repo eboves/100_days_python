@@ -19,6 +19,6 @@ if left_right_1 == 'left':
         elif left_right_3 == "left":
             print("GAME OVER.")
         else:
-            print("You Win!")
+            print("You Win!!")
 else: 
     print("GAME OVER.")
