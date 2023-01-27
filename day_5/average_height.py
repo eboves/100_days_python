@@ -6,5 +6,11 @@ for n in range(0, len(student_heights)):
 
 
 #Write your code below this row 👇
-
-print(student_heights)
+holder = 0
+iterration = 0
+for height in student_heights:
+    holder += height
+    iterration += 1
+    print(f"{holder} is: , and height is: {height}")
+average = round(holder/iterration)
+print(f"The average height is: {average}")
