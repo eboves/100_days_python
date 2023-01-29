@@ -1,4 +1,5 @@
 #Password Generator Project
+from asyncio.proactor_events import _ProactorDuplexPipeTransport
 import random
 letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
@@ -8,10 +9,45 @@ print("Welcome to the PyPassword Generator!")
 nr_letters= int(input("How many letters would you like in your password?\n")) 
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
+# nr_letters = 4
+# nr_symbols = 2
+# nr_numbers = 2
 
 #Eazy Level - Order not randomised:
 #e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+eazy_level_list = []
+random_list_list = []
+random_list = ""
+holder = ""
+
+
+for num in range(0, nr_letters):
+    rand_letter = random.randint(0, len(letters)) - 1
+    eazy_level_list.append(letters[rand_letter])
+
+for num in range(0, nr_symbols):
+    rand_symbol = random.randint(0, len(symbols)) - 1
+    eazy_level_list.append(symbols[rand_symbol])
+    
+
+for num in range(0, nr_numbers):
+    rand_number = random.randint(0, len(numbers)) - 1
+    eazy_level_list.append(numbers[rand_number])
+    
+
+for password in eazy_level_list:
+    random_list_list.append(random.choice(eazy_level_list))
+    # ran_list = random.randint(0, len(eazy_level_list)) - 1
+    # random_list_list.append(eazy_level_list[ran_list])
+    holder += password
+
+for password in random_list_list:
+    random_list += password
+
+print(f"Here is your password: {holder}")
+# print(eazy_level_list)
 
 
 #Hard Level - Order of characters randomised:
 #e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
+print(f"Here is you Random Password: {random_list}")
